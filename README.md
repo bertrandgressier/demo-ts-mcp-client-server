@@ -1,37 +1,42 @@
- # Demo MCP Basic
+# Demo MCP Basic
 
 This project demonstrates a fundamental client-server interaction using the **Model Context Protocol (MCP)**. MCP allows AI models, like those accessed via the AI SDK (e.g., Google Gemini/Vertex AI), to securely discover and utilize external tools or resources provided by a separate server process.
 
 In this example:
-*   The **Server** (`src/server/`) acts as an MCP provider, offering simple calculation tools (addition, subtraction, etc.).
-*   The **Client** (`src/client/`) uses the AI SDK to interact with a Google AI model and connects to the MCP server to make the server's tools available to the AI during generation.
+
+- The **Server** (`src/server/`) acts as an MCP provider, offering simple calculation tools (addition, subtraction, etc.).
+- The **Client** (`src/client/`) uses the AI SDK to interact with a Google AI model and connects to the MCP server to make the server's tools available to the AI during generation.
 
 This setup illustrates how you can extend the capabilities of AI models by giving them access to custom functionalities hosted on an MCP server.
 
 ## Prerequisites
 
-*   Node.js (Version >=23.0.0 as specified in `package.json`)
-*   npm (comes with Node.js)
-*   A Google AI (Gemini) API Key. You can obtain one from [Google AI Studio](https://aistudio.google.com/). (Required for using Gemini models).
+- Node.js (Version >=23.0.0 as specified in `package.json`)
+- npm (comes with Node.js)
+- A Google AI (Gemini) API Key. You can obtain one from [Google AI Studio](https://aistudio.google.com/). (Required for using Gemini models).
 
 ## Setup
 
 1.  **Clone the repository:**
+
     ```bash
     git clone git@github.com:bertrandgressier/demo-ts-mcp-client-server.git
     cd demo-mcp-basic
     ```
 
 2.  **Install dependencies:**
+
     ```bash
     npm install
     ```
 
 3.  **Create Environment File:**
     Copy the example environment file `.env.example` to a new file named `.env`:
+
     ```bash
     cp .env.example .env
     ```
+
     Then, edit the `.env` file to add your actual API keys and configuration. The required and optional variables are:
 
     ```dotenv
@@ -48,49 +53,60 @@ This setup illustrates how you can extend the capabilities of AI models by givin
     # VERTEX_KEY_FILE=path/to/your/vertex-key.json
     ```
 
-    *Replace `YOUR_GOOGLE_API_KEY` and `YOUR_VERTEX_PROJECT_ID` with your actual credentials.*
-    *If you use a Vertex AI key file, ensure it's placed correctly (e.g., in the root as `vertex-key.json` or provide the correct path in `VERTEX_KEY_FILE`).*
-    * **Important:** The `.gitignore` file is configured to prevent `.env` and `vertex-key.json` from being committed to Git.
+    _Replace `YOUR_GOOGLE_API_KEY` and `YOUR_VERTEX_PROJECT_ID` with your actual credentials._
+    _If you use a Vertex AI key file, ensure it's placed correctly (e.g., in the root as `vertex-key.json` or provide the correct path in `VERTEX_KEY_FILE`)._
+
+    - **Important:** The `.gitignore` file is configured to prevent `.env` and `vertex-key.json` from being committed to Git.
 
 ## Available Scripts
 
-*   **Build TypeScript:**
-    ```bash
-    npm run build
-    ```
-    Compiles TypeScript code from `src` to JavaScript in `dist`.
+- **Build TypeScript:**
 
-*   **Start Production Server:**
-    ```bash
-    npm run start
-    # or specifically
-    npm run start:server
-    ```
-    Builds the project (if not already built) and runs the compiled server from `dist/server/server.js`.
+  ```bash
+  npm run build
+  ```
 
-*   **Start Production Client:**
-    ```bash
-    npm run start:client
-    ```
-    Runs the compiled client from `dist/client/client.js`.
+  Compiles TypeScript code from `src` to JavaScript in `dist`.
 
-*   **Run Server in Development Mode:**
-    ```bash
-    npm run dev:server
-    ```
-    Runs the server directly using `ts-node` (or similar via `--experimental-transform-types`) without needing a separate build step.
+- **Start Production Server:**
 
-*   **Run Server in Development Mode with Watch:**
-    ```bash
-    npm run dev:server:watch
-    ```
-    Runs the server using `nodemon`, automatically restarting it when changes are detected in the `src/server` directory.
+  ```bash
+  npm run start
+  # or specifically
+  npm run start:server
+  ```
 
-*   **Run Client in Development Mode:**
-    ```bash
-    npm run dev:client
-    ```
-    Runs the client directly using `ts-node` (or similar).
+  Builds the project (if not already built) and runs the compiled server from `dist/server/server.js`.
+
+- **Start Production Client:**
+
+  ```bash
+  npm run start:client
+  ```
+
+  Runs the compiled client from `dist/client/client.js`.
+
+- **Run Server in Development Mode:**
+
+  ```bash
+  npm run dev:server
+  ```
+
+  Runs the server directly using `ts-node` (or similar via `--experimental-transform-types`) without needing a separate build step.
+
+- **Run Server in Development Mode with Watch:**
+
+  ```bash
+  npm run dev:server:watch
+  ```
+
+  Runs the server using `nodemon`, automatically restarting it when changes are detected in the `src/server` directory.
+
+- **Run Client in Development Mode:**
+  ```bash
+  npm run dev:client
+  ```
+  Runs the client directly using `ts-node` (or similar).
 
 ## Example Client (`src/client/client.ts`)
 
@@ -106,11 +122,11 @@ This client serves as a basic illustration of how an application can interact wi
 
 ## Project Structure
 
-*   `src/`: Contains the TypeScript source code.
-    *   `client/`: Code for the MCP client application.
-    *   `server/`: Code for the MCP server application.
-    *   `model.ts`: Handles AI model initialization and environment variable loading.
-*   `dist/`: Contains the compiled JavaScript code (after running `npm run build`).
-*   `.env`: Stores environment variables (API keys, etc.) - **Do not commit this file.**
-*   `package.json`: Project metadata and dependencies.
-*   `tsconfig.json`: TypeScript compiler configuration.
+- `src/`: Contains the TypeScript source code.
+  - `client/`: Code for the MCP client application.
+  - `server/`: Code for the MCP server application.
+  - `model.ts`: Handles AI model initialization and environment variable loading.
+- `dist/`: Contains the compiled JavaScript code (after running `npm run build`).
+- `.env`: Stores environment variables (API keys, etc.) - **Do not commit this file.**
+- `package.json`: Project metadata and dependencies.
+- `tsconfig.json`: TypeScript compiler configuration.

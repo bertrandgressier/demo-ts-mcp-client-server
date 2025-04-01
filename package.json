@@ -11,12 +11,15 @@
     "start:client": "node dist/client/client.js",
     "dev:server": "node --experimental-transform-types src/server/server.ts",
     "dev:server:watch": "nodemon --watch src/server --exec npm run dev:server",
-    "dev:client": "node --experimental-transform-types src/client/client.ts"
+    "dev:client": "node --experimental-transform-types src/client/client.ts",
+    "format": "prettier --write .",
+    "check-format": "prettier --check ."
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.14",
     "nodemon": "^3.1.9",
+    "prettier": "^3.5.3",
     "typescript": "^5.8.2"
   },
   "dependencies": {

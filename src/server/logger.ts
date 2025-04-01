@@ -19,24 +19,27 @@ const logger = winston.createLogger({
 // Add console transport for development/non-production environments
 // Use a simpler, colorized format for console readability
 if (process.env.NODE_ENV !== 'production') {
-  logger.add(new winston.transports.Console({
-    format: winston.format.combine(
-      winston.format.colorize(),
-      // Modify printf to include module/tool context if present
-      winston.format.printf(({ level, message, timestamp, stack, module, tool }) => {
-        const context = module ? `[${module}]` : (tool ? `[Tool: ${tool}]` : '');
-        // Include stack trace in console output if available
-        return `${timestamp} ${level} ${context}: ${stack || message}`;
-      })
-    )
-  }));
+  logger.add(
+    new winston.transports.Console({
+      format: winston.format.combine(
+        winston.format.colorize(),
+        // Modify printf to include module/tool context if present
+        winston.format.printf(({ level, message, timestamp, stack, module, tool }) => {
+          const context = module ? `[${module}]` : tool ? `[Tool: ${tool}]` : '';
+          // Include stack trace in console output if available
+          return `${timestamp} ${level} ${context}: ${stack || message}`;
+        })
+      ),
+    })
+  );
 } else {
   // For production, you might want a standard console transport (e.g., JSON)
-  logger.add(new winston.transports.Console({
-    format: winston.format.json(), // Log JSON to console in production
-  }));
+  logger.add(
+    new winston.transports.Console({
+      format: winston.format.json(), // Log JSON to console in production
+    })
+  );
 }
-
 
 export default logger;
 

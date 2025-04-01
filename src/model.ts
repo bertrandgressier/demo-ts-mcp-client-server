@@ -1,11 +1,10 @@
-import {createGoogleGenerativeAI} from '@ai-sdk/google';
-import {createVertex} from '@ai-sdk/google-vertex';
+import { createGoogleGenerativeAI } from '@ai-sdk/google';
+import { createVertex } from '@ai-sdk/google-vertex';
 import path from 'node:path';
 import { config } from 'dotenv';
 
 // Load environment variables from .env file first
 config();
-
 
 // --- Environment Variable Reading & Validation ---
 
@@ -39,7 +38,6 @@ const VERTEX_KEY_FILE = rawVertexKeyFile || 'vertex-key.json';
 
 // --- End Validation ---
 
-
 export enum GoogleModel {
   Gemini15Flash = 'models/gemini-1.5-flash-001',
   Gemini20FlashLite = 'models/gemini-2.0-flash-lite',
@@ -48,15 +46,14 @@ export enum GoogleModel {
 // Note: Original validation block is now replaced by the comprehensive checks above.
 
 export const googleStudioModel = createGoogleGenerativeAI({
-    apiKey: GOOGLE_API_KEY // Use the key from process.env
-})
-
+  apiKey: GOOGLE_API_KEY, // Use the key from process.env
+});
 
 export const vertexModel = createVertex({
   project: VERTEX_PROJECT_ID,
   location: VERTEX_LOCATION,
   googleAuthOptions: {
-      keyFile: path.resolve(VERTEX_KEY_FILE),
-      scopes: ['https://www.googleapis.com/auth/cloud-platform'],
+    keyFile: path.resolve(VERTEX_KEY_FILE),
+    scopes: ['https://www.googleapis.com/auth/cloud-platform'],
   },
-})
+});

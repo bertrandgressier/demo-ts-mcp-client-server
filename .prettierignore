@@ -1,0 +1,17 @@
+# Ignore artifacts:
+node_modules
+dist
+coverage
+
+# Ignore environment files:
+.env
+.env.*
+!*.env.example
+
+# Ignore lock files:
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore specific config files if needed:
+# .vscode/
