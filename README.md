@@ -12,6 +12,7 @@ This setup illustrates how you can extend the capabilities of AI models by givin
 
 *   Node.js (Version >=23.0.0 as specified in `package.json`)
 *   npm (comes with Node.js)
+*   A Google AI (Gemini) API Key. You can obtain one from [Google AI Studio](https://aistudio.google.com/). (Required for using Gemini models).
 
 ## Setup
 
