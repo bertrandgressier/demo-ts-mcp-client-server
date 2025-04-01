@@ -1,4 +1,4 @@
-# Demo MCP Basic
+ # Demo MCP Basic
 
 This project demonstrates a fundamental client-server interaction using the **Model Context Protocol (MCP)**. MCP allows AI models, like those accessed via the AI SDK (e.g., Google Gemini/Vertex AI), to securely discover and utilize external tools or resources provided by a separate server process.
 
@@ -28,7 +28,11 @@ This setup illustrates how you can extend the capabilities of AI models by givin
     ```
 
 3.  **Create Environment File:**
-    Create a `.env` file in the root directory of the project. This file will store your API keys and configuration. Add the following variables:
+    Copy the example environment file `.env.example` to a new file named `.env`:
+    ```bash
+    cp .env.example .env
+    ```
+    Then, edit the `.env` file to add your actual API keys and configuration. The required and optional variables are:
 
     ```dotenv
     # Required for Google Studio Models (Gemini)
