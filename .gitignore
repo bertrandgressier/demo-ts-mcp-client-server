@@ -16,3 +16,4 @@ vertex-key.json
 # Environment variables file
 .env
 .roo
+.DS_Store
