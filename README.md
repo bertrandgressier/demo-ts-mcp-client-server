@@ -11,7 +11,7 @@ A basic demonstration project showcasing the Model Context Protocol (MCP) SDK in
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url>
+    git clone git@github.com:bertrandgressier/demo-ts-mcp-client-server.git
     cd demo-mcp-basic
     ```
 
